@@ -15,16 +15,14 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
+    // var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
+
+    // moved array to TriviaModel.swift
     
-    let trivia: [[String : String]] = [
-        ["Question": "Only female koalas can whistle", "Answer": "False"],
-        ["Question": "Blue whales are technically whales", "Answer": "True"],
-        ["Question": "Camels are cannibalistic", "Answer": "False"],
-        ["Question": "All ducks are birds", "Answer": "True"]
-    ]
+    let triviaModel = TriviaModel() // changed old trivia array to trivia instance of TriviaModel Struct
+    
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
@@ -46,8 +44,7 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(trivia.count)
-        let questionDictionary = trivia[indexOfSelectedQuestion]
+        let questionDictionary = triviaModel.getRandomQuestion()
         questionField.text = questionDictionary["Question"]
         playAgainButton.hidden = true
     }
@@ -67,9 +64,9 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
         questionsAsked += 1
-        
-        let selectedQuestionDict = trivia[indexOfSelectedQuestion]
+        let selectedQuestionDict = triviaModel.getRandomQuestion()
         let correctAnswer = selectedQuestionDict["Answer"]
+        questionsAsked += 1
         
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             correctQuestions += 1
