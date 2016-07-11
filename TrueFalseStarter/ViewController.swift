@@ -12,12 +12,13 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    let questionsPerRound = 4
+    let questionsPerRound = 6
     var questionsAsked = 0
     var correctQuestions = 0
-    // var indexOfSelectedQuestion: Int = 0
+    var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
+    var gameSoundWin: SystemSoundID = 0
 
     // moved array to TriviaModel.swift
     
@@ -25,8 +26,10 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var questionField: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var optionAButton: UIButton!
+    @IBOutlet weak var optionBButton: UIButton!
+    @IBOutlet weak var optionCButton: UIButton!
+    @IBOutlet weak var optionDButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     
 
@@ -44,37 +47,49 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        let questionDictionary = triviaModel.getRandomQuestion()
-        questionField.text = questionDictionary["Question"]
+        
+        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(triviaModel.triviaGOT.count)
+        
+        let optionsDictionary = triviaModel.triviaGOT[indexOfSelectedQuestion]
+        
+        questionField.text = optionsDictionary["Question"]
+        
+        optionAButton.setTitle(optionsDictionary["OptionA"], forState: .Normal)
+        optionBButton.setTitle(optionsDictionary["OptionB"], forState: .Normal)
+        optionCButton.setTitle(optionsDictionary["OptionC"], forState: .Normal)
+        optionDButton.setTitle(optionsDictionary["OptionD"], forState: .Normal)
         playAgainButton.hidden = true
     }
     
     func displayScore() {
         // Hide the answer buttons
-        trueButton.hidden = true
-        falseButton.hidden = true
+        optionAButton.hidden = true
+        optionBButton.hidden = true
+        optionCButton.hidden = true
+        optionDButton.hidden = true
         
         // Display play again button
         playAgainButton.hidden = false
         
         questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
+        playWinStartSound()
         
     }
     
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
         questionsAsked += 1
-        let selectedQuestionDict = triviaModel.getRandomQuestion()
-        let correctAnswer = selectedQuestionDict["Answer"]
-        questionsAsked += 1
         
-        if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
+        let selectedQuestionDict = triviaModel.triviaGOT[indexOfSelectedQuestion]
+        let correctAnswer = selectedQuestionDict["Answer"]
+        
+        if (sender === optionAButton &&  correctAnswer == "OptionA") || (sender === optionBButton &&  correctAnswer == "OptionB")  || (sender === optionCButton &&  correctAnswer == "OptionC") || (sender === optionDButton && correctAnswer == "OptionD") {
             correctQuestions += 1
             questionField.text = "Correct!"
         } else {
-            questionField.text = "Sorry, wrong answer!"
+            questionField.text = "Sorry, the answer is \(selectedQuestionDict[correctAnswer!])!"
         }
-        
+
         loadNextRoundWithDelay(seconds: 2)
     }
     
@@ -90,8 +105,10 @@ class ViewController: UIViewController {
     
     @IBAction func playAgain() {
         // Show the answer buttons
-        trueButton.hidden = false
-        falseButton.hidden = false
+        optionAButton.hidden = false
+        optionBButton.hidden = false
+        optionCButton.hidden = false
+        optionDButton.hidden = false
         
         questionsAsked = 0
         correctQuestions = 0
@@ -115,13 +132,21 @@ class ViewController: UIViewController {
     }
     
     func loadGameStartSound() {
-        let pathToSoundFile = NSBundle.mainBundle().pathForResource("GameSound", ofType: "wav")
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource("GameSoundGOT", ofType: "wav")
         let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
         AudioServicesCreateSystemSoundID(soundURL, &gameSound)
+        
+        let pathToSoundFileWin = NSBundle.mainBundle().pathForResource("winOrDie", ofType: "wav")
+        let soundURLWin = NSURL(fileURLWithPath: pathToSoundFileWin!)
+        AudioServicesCreateSystemSoundID(soundURLWin, &gameSoundWin)
     }
     
     func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
+    }
+    
+    func playWinStartSound() {
+        AudioServicesPlaySystemSound(gameSoundWin)
     }
 }
 
