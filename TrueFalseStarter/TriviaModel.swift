@@ -17,14 +17,14 @@ class TriviaModel {
         ["Question": "What does Valar Morghulis mean?", "Answer": "OptionD", "OptionA": "Good morning", "OptionB": "All men must serve", "OptionC": "Good evening", "OptionD": "All men must die"],
         ["Question": "Who is the 'shame lady'?", "Answer": "OptionC", "OptionA": "Septa Nutella", "OptionB": "Septa Mordane", "OptionC": "Septa Unella", "OptionD": "Septa Eglatine"],
         ["Question": "Who was the last to stab Jon Snow?", "Answer": "OptionA", "OptionA": "Olly", "OptionB": "Thorne", "OptionC": "Yarwyck", "OptionD": "Marsh"],
-        ["Question": "What is the title of the 9th episode of Season 6?", "Answer": "OptionC", "OptionA": "Blackwater", "OptionB": "The Rains of Castamere", "OptionC": "Battle of the Bastards", "OptionD": "The Winds of Winter"]
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"],
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"],
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"],
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"],
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"],
-//        ["Question": "Who is Eddard Stark's oldest son?", "Answer": "OptionA", "OptionA": "Robb Stark", "OptionB": "Jon Snow", "OptionC": "Brandon Stark", "OptionD": "Rickon Stark"]
+        ["Question": "What is the title of the 9th episode of Season 6?", "Answer": "OptionC", "OptionA": "Blackwater", "OptionB": "The Rains of Castamere", "OptionC": "Battle of the Bastards", "OptionD": "The Winds of Winter"],
+        ["Question": "Who is not a Lannister?", "Answer": "OptionD", "OptionA": "Tywin", "OptionB": "Cersei", "OptionC": "Lancel", "OptionD": "Mace"],
+        ["Question": "Which house is from Dorne?", "Answer": "OptionB", "OptionA": "Tyrell", "OptionB": "Martell", "OptionC": "Clegane", "OptionD": "Arryn"],
+        ["Question": "Who killed Balon Greyjoy?", "Answer": "OptionD", "OptionA": "Yara", "OptionB": "Aeron", "OptionC": "Theon", "OptionD": "Euron"],
+        ["Question": "What does L+R=J mean?", "Answer": "OptionB", "OptionA": "Littlefinger+Robin=Joffrey", "OptionB": "Lyanna+Rhaegar=Jon", "OptionC": "Lady Stark+Red Wedding=Joyeuse Frey", "OptionD": "Lannister+Reed=Justice"]
     ]
+    
+
     
 
 
