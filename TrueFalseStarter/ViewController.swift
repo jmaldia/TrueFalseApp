@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     var gameSound: SystemSoundID = 0
     var gameSoundWin: SystemSoundID = 0
+    
+    // Sounds for correct and incorrect answers
+    var correctAnswer: SystemSoundID = 0
+    var wrongAnswer: SystemSoundID = 0
 
     // moved array to TriviaModel.swift
     
@@ -70,7 +74,7 @@ class ViewController: UIViewController {
         playAgainButton.hidden = true
         answerField.hidden = true
         
-        // loadNextRoundWithDelay(seconds: 5)
+        // loadNextRoundWithDelay(seconds: 15)
     }
     
     func displayScore() {
@@ -99,10 +103,12 @@ class ViewController: UIViewController {
         
         if (sender === optionAButton &&  correctAnswer == "OptionA") || (sender === optionBButton &&  correctAnswer == "OptionB")  || (sender === optionCButton &&  correctAnswer == "OptionC") || (sender === optionDButton && correctAnswer == "OptionD") {
             correctQuestions += 1
+            correctAnswerSound()
             questionField.text = "Correct!"
         } else {
             answerField.hidden = false
-            questionField.text = "Sorry, the is incorrect!"
+            wrongAnswerSound()
+            questionField.text = "Sorry, your answer is incorrect!"
             answerField.text = "The answer is \(answer)!"
         }
 
@@ -157,6 +163,14 @@ class ViewController: UIViewController {
         let pathToSoundFileWin = NSBundle.mainBundle().pathForResource("winOrDie", ofType: "wav")
         let soundURLWin = NSURL(fileURLWithPath: pathToSoundFileWin!)
         AudioServicesCreateSystemSoundID(soundURLWin, &gameSoundWin)
+        
+        let pathToSoundFileCorrect = NSBundle.mainBundle().pathForResource("correct", ofType: "wav")
+        let soundURLCorrect = NSURL(fileURLWithPath: pathToSoundFileCorrect!)
+        AudioServicesCreateSystemSoundID(soundURLCorrect, &correctAnswer)
+        
+        let pathToSoundFileWrong = NSBundle.mainBundle().pathForResource("wrong", ofType: "m4r")
+        let soundURLWrong = NSURL(fileURLWithPath: pathToSoundFileWrong!)
+        AudioServicesCreateSystemSoundID(soundURLWrong, &wrongAnswer)
     }
     
     func playGameStartSound() {
@@ -165,6 +179,14 @@ class ViewController: UIViewController {
     
     func playWinStartSound() {
         AudioServicesPlaySystemSound(gameSoundWin)
+    }
+    
+    func correctAnswerSound() {
+        AudioServicesPlaySystemSound(correctAnswer)
+    }
+    
+    func wrongAnswerSound() {
+        AudioServicesPlaySystemSound(wrongAnswer)
     }
 }
 

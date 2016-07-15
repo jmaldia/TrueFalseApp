@@ -16,6 +16,9 @@
 		CC86F7EB1D31F8060027E178 /* TriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC86F7EA1D31F8060027E178 /* TriviaModel.swift */; };
 		CC86F7ED1D3337280027E178 /* GameSoundGOT.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC86F7EC1D3337280027E178 /* GameSoundGOT.wav */; };
 		CC86F7EF1D33450B0027E178 /* winOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC86F7EE1D33450B0027E178 /* winOrDie.wav */; };
+		CCE24CDB1D388ECF006E39BF /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCE24CD91D388ECF006E39BF /* correct.wav */; };
+		CCE24CDC1D388ECF006E39BF /* wrong.m4r in Resources */ = {isa = PBXBuildFile; fileRef = CCE24CDA1D388ECF006E39BF /* wrong.m4r */; };
+		CCE24CDE1D3890ED006E39BF /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCE24CDD1D3890ED006E39BF /* wrong.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		CC86F7EA1D31F8060027E178 /* TriviaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaModel.swift; sourceTree = "<group>"; };
 		CC86F7EC1D3337280027E178 /* GameSoundGOT.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSoundGOT.wav; sourceTree = "<group>"; };
 		CC86F7EE1D33450B0027E178 /* winOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = winOrDie.wav; sourceTree = "<group>"; };
+		CCE24CD91D388ECF006E39BF /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		CCE24CDA1D388ECF006E39BF /* wrong.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.m4r; sourceTree = "<group>"; };
+		CCE24CDD1D3890ED006E39BF /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				97093D521C932116001275BC /* GameSound.wav */,
 				CC86F7EC1D3337280027E178 /* GameSoundGOT.wav */,
 				CC86F7EE1D33450B0027E178 /* winOrDie.wav */,
+				CCE24CD91D388ECF006E39BF /* correct.wav */,
+				CCE24CDD1D3890ED006E39BF /* wrong.wav */,
+				CCE24CDA1D388ECF006E39BF /* wrong.m4r */,
 			);
 			path = TrueFalseStarter;
 			sourceTree = "<group>";
@@ -138,8 +147,11 @@
 				97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */,
 				97093D431C913506001275BC /* Assets.xcassets in Resources */,
 				CC86F7ED1D3337280027E178 /* GameSoundGOT.wav in Resources */,
+				CCE24CDB1D388ECF006E39BF /* correct.wav in Resources */,
+				CCE24CDE1D3890ED006E39BF /* wrong.wav in Resources */,
 				97093D411C913506001275BC /* Main.storyboard in Resources */,
 				CC86F7EF1D33450B0027E178 /* winOrDie.wav in Resources */,
+				CCE24CDC1D388ECF006E39BF /* wrong.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
